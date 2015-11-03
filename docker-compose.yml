@@ -12,7 +12,6 @@ web:
    - rabbitmq
    - orientdb
 gems:
-  container_name: gems  
   build: ./api  
   command: echo Im a data container 
   volumes:
