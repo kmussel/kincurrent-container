@@ -1,0 +1,52 @@
+web:
+  container_name: api
+  build: ./api  
+  ports:
+   - "8000:8000"
+  volumes:
+   - ./api:/api
+  volumes_from:
+   - gems
+  links:
+   - postgresql:db
+   - rabbitmq
+   - orientdb
+gems:
+  container_name: gems  
+  build: ./api  
+  command: echo Im a data container 
+  volumes:
+   - /opt/jruby-1.7.19
+postgresql:  
+  build: ./postgresql
+  container_name: postgresql
+  ports:
+  - "5432:5432"
+  volumes:
+  - /opt/postgresql/data:/var/lib/postgresql
+  environment:
+   DB_USER:
+   DB_PASS:
+   DB_NAME:
+rabbitmq:
+  build: ./rabbitmq
+  container_name: rabbit
+  ports:
+  - "5672:5672"
+  - "15672:15672"
+  environment:
+   RABBITMQ_USER:
+   RABBITMQ_PASS:
+   RABBITMQ_VHOST:
+orientdb:
+  build: ./orientdb
+  container_name: orientdb
+  ports:
+  - "2480:2480"
+  - "2424:2424"
+  volumes:
+  - /var/lib/orientdb
+  environment:
+   ORIENTDB_USER:
+   ORIENTDB_PWD:
+   ORIENTDB_ROOT_PASSWORD:

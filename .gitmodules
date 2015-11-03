@@ -1,0 +1,12 @@
+[submodule "postgresql"]
+	path = postgresql
+	url = git@github.com:kmussel/docker-postgresql.git
+[submodule "api"]
+	path = api
+	url = git@github.com:kmussel/kincurrent-api.git
+[submodule "orientdb"]
+	path = orientdb
+	url = git@github.com:kmussel/docker-orientdb.git
+[submodule "rabbitmq"]
+	path = rabbitmq
+	url = git@github.com:kmussel/docker-rabbitmq.git
