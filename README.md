@@ -3,10 +3,13 @@
 First download Docker https://docs.docker.com/
 
 Clone this repository.
+```bash
 git clone git@github.com:kmussel/kincurrent-container.git
 git submodule init
 git submodule update
+```
 
+Setup Orientdb Database
 ```bash
 docker-compose up -d orientdb
 ```
